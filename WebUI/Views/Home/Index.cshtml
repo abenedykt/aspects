@@ -1,0 +1,38 @@
+﻿@model IEnumerable<string>
+
+<div ng-controller="fizzBuzzCtrl" class="jumbotron main-box">
+	<div>
+		<h2>Fizz Buzz</h2>
+		<p>
+			(also known as bizz buzz, or simply buzz) is a group word game for children
+			to teach them about division.[1] Players take turns to count incrementally,
+			replacing any number divisible by three with the word "fizz", and any number
+			divisible by five with the word "buzz". So type in a number and see if you were correct:
+		</p>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5">
+				<input ng-model="input" ng-change="updateFizzBuzz(input)" />
+			</div>
+		</div>
+
+		<p>
+			<ol type="1">
+				<li ng-repeat="val in result track by $index" class="btn btn-default"
+					ng-class="{'btn-primary': val=='Fizz','btn-success': val=='Buzz','btn-info': val=='Fizz Buzz'}">{{val}}</li>
+			</ol>
+		</p>
+	</div>
+</div>
+
+<script language="javascript">
+	function fizzBuzzCtrl($scope, $http) {
+		$scope.input = 1;
+		$scope.result = "1";
+
+		$scope.updateFizzBuzz = function (val) {
+			$http.get('/api/fizzbuzz/' + val).success(function (data) {
+				$scope.result = data;
+			})
+		}
+	}
+</script>
