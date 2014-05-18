@@ -7,7 +7,6 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
-using FizzBuzzApplication;
 
 namespace WebUI
 {
@@ -17,7 +16,6 @@ namespace WebUI
         {
 	        BuildApplication();
             AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
         }
 
@@ -25,7 +23,9 @@ namespace WebUI
 	    {
 		    var builder = new ContainerBuilder();
 		    builder.RegisterControllers(typeof (Global).Assembly);
-			builder.RegisterType<FizzBuzzApp>().As<IApplication>();
+
+
+//			builder.RegisterType<FizzBuzzApp>().As<IApplication>();
 
 		    builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 		    var container = builder.Build();
