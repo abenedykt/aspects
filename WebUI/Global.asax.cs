@@ -24,7 +24,6 @@ namespace WebUI
 		    var builder = new ContainerBuilder();
 		    builder.RegisterControllers(typeof (Global).Assembly);
 
-
 //			builder.RegisterType<FizzBuzzApp>().As<IApplication>();
 
 		    builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
@@ -32,7 +31,6 @@ namespace WebUI
 
 			DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 			GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-	
 	    }
     }
 }
