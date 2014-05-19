@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Http;
 using Autofac;
+using Autofac.Extras.DynamicProxy2;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using WebUI.Controllers;
@@ -25,8 +26,8 @@ namespace WebUI
 		    var builder = new ContainerBuilder();
 		    builder.RegisterControllers(typeof (Global).Assembly);
 
-			builder.RegisterType<ExternalService>().As<IExternalService>();
-
+			builder.RegisterType<ExternalService>().As<IExternalService>().EnableInterfaceInterceptors().InterceptedBy(typeof(LoggingAspect));
+		    builder.RegisterInstance(new LoggingAspect());
 		    builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 		    var container = builder.Build();
 
