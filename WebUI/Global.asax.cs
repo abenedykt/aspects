@@ -7,6 +7,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using WebUI.Controllers;
 
 namespace WebUI
 {
@@ -24,7 +25,7 @@ namespace WebUI
 		    var builder = new ContainerBuilder();
 		    builder.RegisterControllers(typeof (Global).Assembly);
 
-//			builder.RegisterType<FizzBuzzApp>().As<IApplication>();
+			builder.RegisterType<ExternalService>().As<IExternalService>();
 
 		    builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 		    var container = builder.Build();
