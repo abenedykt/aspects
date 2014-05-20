@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using Castle.DynamicProxy;
 
-namespace WebUI
+namespace WebUI.Aspects
 {
 	internal class LoggingAspect : IInterceptor
 	{
@@ -15,7 +15,7 @@ namespace WebUI
 				invocation.Proceed();
 				var end = DateTime.Now;
 				Trace.WriteLine("Ended");
-				Trace.WriteLine("    time : " + end.Subtract(start).Milliseconds + "ms");
+				Trace.WriteLine("    time : " + end.Subtract(start).TotalMilliseconds + "ms");
 			}
 			catch (Exception ex)
 			{

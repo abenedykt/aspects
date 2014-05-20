@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using WebUI.Services;
 
 namespace WebUI.Controllers
 {
@@ -17,22 +17,5 @@ namespace WebUI.Controllers
 		    var data = _service.GetSomeData();
             return View(data);
         }
-	}
-
-	public interface IExternalService
-	{
-		IEnumerable<ISomeObject> GetSomeData();
-	}
-
-	public interface ISomeObject
-	{
-		string Caption { get; set; }
-		string Description { get; set; }
-	}
-
-	public class SomeObject : ISomeObject
-	{
-		public string Caption { get; set; }
-		public string Description { get; set; }
 	}
 }

@@ -409,15 +409,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Aspects\LoggingAspect.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="ExternalService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoggingAspect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ExternalService.cs" />
+    <Compile Include="Services\IExternalService.cs" />
+    <Compile Include="Services\ISomeObject.cs" />
+    <Compile Include="Services\SomeObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

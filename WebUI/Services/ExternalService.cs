@@ -1,19 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
-using WebUI.Controllers;
 
-namespace WebUI
+namespace WebUI.Services
 {
 	public class ExternalService : IExternalService
 	{
 		public IEnumerable<ISomeObject> GetSomeData()
 		{
-			Thread.Sleep(100);
-			yield return new SomeObject
-			{
-				Caption = "Hello",
-				Description = "This is a hello world"
+			Thread.Sleep(1000);
 
+			return new[]
+			{
+				new SomeObject
+				{
+					Caption = "Hello",
+					Description = "This is a hello world"
+				}
 			};
 		}
 	}
