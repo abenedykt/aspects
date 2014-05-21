@@ -6,7 +6,6 @@ using Autofac.Extras.DynamicProxy2;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using WebUI.Aspects;
-using WebUI.Controllers;
 using WebUI.Services;
 
 namespace WebUI

@@ -9,7 +9,7 @@ namespace WebUI
     {
         void Application_Start(object sender, EventArgs e)
         {
-	        AutofacConfig.RegisterComponents();
+			AutofacConfig.RegisterComponents();
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
         }
