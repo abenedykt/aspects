@@ -1,6 +1,4 @@
-﻿using WebUI.Controllers;
-
-namespace WebUI.Services
+﻿namespace WebUI.Services
 {
 	public class SomeObject : ISomeObject
 	{
