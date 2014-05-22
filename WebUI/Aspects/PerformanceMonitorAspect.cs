@@ -4,7 +4,7 @@ using Castle.DynamicProxy;
 
 namespace WebUI.Aspects
 {
-	internal class LoggingAspect : IInterceptor
+	internal class PerformanceMonitorAspect : IInterceptor
 	{
 		public void Intercept(IInvocation invocation)
 		{
@@ -15,13 +15,12 @@ namespace WebUI.Aspects
 				invocation.Proceed();
 				var end = DateTime.Now;
 				Trace.WriteLine("Ended");
-				Trace.WriteLine("    time : " + end.Subtract(start).TotalMilliseconds + "ms");
+				Trace.WriteLine("     time : " + end.Subtract(start).TotalMilliseconds + "ms");
 			}
 			catch (Exception ex)
 			{
 				Trace.TraceError(ex.Message);
 			}
-
 		}
 	}
 }

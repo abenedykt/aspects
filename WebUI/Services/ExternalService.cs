@@ -5,7 +5,7 @@ namespace WebUI.Services
 {
 	public class ExternalService : IExternalService
 	{
-		public IEnumerable<ISomeObject> GetSomeData()
+		public IEnumerable<ISomeObject> GetExampleData()
 		{
 			Thread.Sleep(1000);
 

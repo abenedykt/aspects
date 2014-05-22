@@ -4,6 +4,6 @@ namespace WebUI.Services
 {
 	public interface IExternalService
 	{
-		IEnumerable<ISomeObject> GetSomeData();
+		IEnumerable<ISomeObject> GetExampleData();
 	}
 }

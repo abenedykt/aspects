@@ -5,16 +5,16 @@ namespace WebUI.Controllers
 {
     public class HomeController : Controller
     {
-	    private readonly IExternalService _service;
+	    private readonly IExternalService _demoService;
 
-	    public HomeController(IExternalService service)
+	    public HomeController(IExternalService demoService)
 	    {
-		    _service = service;
+		    _demoService = demoService;
 	    }
 
 	    public ActionResult Index()
 	    {
-		    var data = _service.GetSomeData();
+		    var data = _demoService.GetExampleData();
             return View(data);
         }
 	}

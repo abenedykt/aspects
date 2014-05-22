@@ -17,8 +17,8 @@ namespace WebUI
 			var builder = new ContainerBuilder();
 			builder.RegisterControllers(typeof(Global).Assembly);
 
-			builder.RegisterType<ExternalService>().As<IExternalService>().EnableInterfaceInterceptors().InterceptedBy(typeof(LoggingAspect));
-			builder.RegisterInstance(new LoggingAspect());
+			builder.RegisterType<ExternalService>().As<IExternalService>().EnableInterfaceInterceptors().InterceptedBy(typeof(PerformanceMonitorAspect));
+			builder.RegisterInstance(new PerformanceMonitorAspect());
 			builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 			var container = builder.Build();
 
